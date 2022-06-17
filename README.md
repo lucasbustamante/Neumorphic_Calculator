@@ -13,7 +13,7 @@ Criação de calculadora Neumorphic, baseado no Design da calculadora IOS
 Screenshots da tela inicial.
 
 <p float="left">
-  <img src="/screenshots/calculator.jpg" width="250" />
+  <img src="/screenshots/calculator.jpg" width="800" />
 
 
 ## Executando
