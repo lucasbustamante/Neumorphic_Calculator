@@ -1,13 +1,14 @@
 String Display = '0';
 String Receptor = '';
-int Dig1 = 0;
-int Dig2 = 0;
+double Dig1 = 0;
+double Dig2 = 0;
 String Operation = '';
 bool Test = false;
 bool Virg = false;
 String Memory = '';
-int Conver = 0;
+double Conver = 0;
 bool Converbool = false;
+String oi = '';
 
 
 operation (String ButtonValue){
@@ -22,13 +23,17 @@ operation (String ButtonValue){
     Conver = 0;
     Converbool = false;
   }
+
+  //TODO: Corrigir trocar de sinais em meio a soma
   else if(ButtonValue == '+' || ButtonValue == '-' || ButtonValue == '%' ||
       ButtonValue == '×' || ButtonValue == '÷'){
+    Virg = false;
     Operation = ButtonValue;
-    Dig1 = int.parse(Receptor);
+    Dig1 = double.parse(Memory);
     Test = true;
     Display = Receptor + Operation;
     Memory = Display;
+    Receptor = '';
   }
 
   else if(Display == '0' && ButtonValue == '0'){
@@ -36,28 +41,30 @@ operation (String ButtonValue){
   }
 
   else if(ButtonValue == '+/-'){
-    Conver = int.parse(Receptor);
+    Conver = double.parse(Receptor);
     Conver = Conver - 2 * Conver;
     Receptor = Conver.toString();
+
     if (Converbool == false){
-    Display = Receptor;
+      Display = Receptor;
+      Memory = Receptor;
     }else {
       Display = Memory + Receptor;
-      Dig2 = int.parse(Receptor);
+      Dig2 = double.parse(Receptor);
     }
   }
 //TODO: Corrigir somas com double
-  else if(ButtonValue == ','){
+  else if(ButtonValue == '.'){
     if(Virg == false) {
       Virg = true;
-    if (Display == '0') {
-      Receptor = '0' + ButtonValue;
-      Display = Receptor;
-    }else{
-      Receptor += ButtonValue;
-      Display = Receptor;
+      if (Display == '0') {
+        Receptor = '0' + ButtonValue;
+        Display = Receptor;
+      }else{
+        Receptor += ButtonValue;
+        Display += ButtonValue;
+      }
     }
-  }
   }
 
   else if (ButtonValue == '='){
@@ -65,6 +72,7 @@ operation (String ButtonValue){
     switch(Operation){
       case '+':
         Display = (Dig1 + Dig2).toString();
+        print(Dig1);
         break;
       case '-':
         Display = (Dig1 - Dig2).toString();
@@ -75,24 +83,33 @@ operation (String ButtonValue){
       case '÷':
         if(Dig1%Dig2 != 1){
           Display = (Dig1/Dig2).toStringAsFixed(0);
+          break;
         }else {
           Display = (Dig1 / Dig2).toString();
         }
+        break;
+    //TODO: Criar função para contas de porcentagem
+      case '%':
+        if(Test == true){
+          Display = (Dig1 / 100 * Dig2).toString();
+        }
+        break;
     }
   }
 
   else{
     if(Display.length <= 15){
-      Receptor += ButtonValue;
-      Display = Receptor;
-      if(Test == true){
+      if (Test == false){
+        Receptor += ButtonValue;
+        Display = Receptor;
+        Memory = Receptor;
+      }
+      else if(Test == true){
         Converbool = true;
-        Receptor =  ButtonValue;
+        Receptor =  Receptor + ButtonValue;
         Display = Memory + Receptor;
-        Dig2 = int.parse(ButtonValue);
+        Dig2 = double.parse(Receptor);
       }
     }
   }
-
-
 }

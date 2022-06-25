@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
           ],),
           Row(children: [
             Button('0', flex: 2),
-            Button(','),
+            Button('.'),
             Button('=', ColorNum: kOperationColor),
 
           ],),
