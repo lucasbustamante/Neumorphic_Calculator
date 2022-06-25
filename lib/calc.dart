@@ -6,6 +6,8 @@ String Operation = '';
 bool Test = false;
 bool Virg = false;
 String Memory = '';
+int Conver = 0;
+bool Converbool = false;
 
 
 operation (String ButtonValue){
@@ -17,6 +19,8 @@ operation (String ButtonValue){
     Virg = false;
     Dig1 = 0;
     Dig2 = 0;
+    Conver = 0;
+    Converbool = false;
   }
   else if(ButtonValue == '+' || ButtonValue == '-' || ButtonValue == '%' ||
       ButtonValue == '×' || ButtonValue == '÷'){
@@ -31,9 +35,16 @@ operation (String ButtonValue){
     Display = Display;
   }
 
-  //TODO: Criar função para numero negativos
   else if(ButtonValue == '+/-'){
-
+    Conver = int.parse(Receptor);
+    Conver = Conver - 2 * Conver;
+    Receptor = Conver.toString();
+    if (Converbool == false){
+    Display = Receptor;
+    }else {
+      Display = Memory + Receptor;
+      Dig2 = int.parse(Receptor);
+    }
   }
 //TODO: Corrigir somas com double
   else if(ButtonValue == ','){
@@ -42,7 +53,6 @@ operation (String ButtonValue){
     if (Display == '0') {
       Receptor = '0' + ButtonValue;
       Display = Receptor;
-      print(Display);
     }else{
       Receptor += ButtonValue;
       Display = Receptor;
@@ -76,12 +86,11 @@ operation (String ButtonValue){
       Receptor += ButtonValue;
       Display = Receptor;
       if(Test == true){
-        Receptor = ButtonValue;
+        Converbool = true;
+        Receptor =  ButtonValue;
         Display = Memory + Receptor;
-
         Dig2 = int.parse(ButtonValue);
       }
-      print(Dig2);
     }
   }
 
