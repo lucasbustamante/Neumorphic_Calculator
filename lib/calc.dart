@@ -27,30 +27,35 @@ operation (String ButtonValue){
   //TODO: Corrigir trocar de sinais em meio a soma
   else if(ButtonValue == '+' || ButtonValue == '-' || ButtonValue == '%' ||
       ButtonValue == '×' || ButtonValue == '÷'){
+    Test = true;
+    if(Dig1 >= 1 || Dig1 <= -1){
+      Receptor = Display;
+      }else{Dig1 = double.parse(Receptor);
+    }
     Virg = false;
     Operation = ButtonValue;
-    Dig1 = double.parse(Memory);
     Test = true;
     Display = Receptor + Operation;
     Memory = Display;
     Receptor = '';
   }
 
-  else if(Display == '0' && ButtonValue == '0'){
-    Display = Display;
+  else if(Receptor == '' && ButtonValue == '0'){
   }
 
-  else if(ButtonValue == '+/-'){
-    Conver = double.parse(Receptor);
-    Conver = Conver - 2 * Conver;
-    Receptor = Conver.toString();
+  else if(ButtonValue == '+/-') {
+    if(Receptor != ''){
+      Conver = double.parse(Receptor);
+      Conver = Conver - 2 * Conver;
+      Receptor = Conver.toString();
 
-    if (Converbool == false){
-      Display = Receptor;
-      Memory = Receptor;
-    }else {
-      Display = Memory + Receptor;
-      Dig2 = double.parse(Receptor);
+      if (Converbool == false) {
+        Display = Receptor;
+        Memory = Receptor;
+      } else {
+        Display = Memory + Receptor;
+        Dig2 = double.parse(Receptor);
+      }
     }
   }
 //TODO: Corrigir somas com double
@@ -69,10 +74,10 @@ operation (String ButtonValue){
 
   else if (ButtonValue == '='){
     Receptor = '';
+    Test = false;
     switch(Operation){
       case '+':
         Display = (Dig1 + Dig2).toString();
-        print(Dig1);
         break;
       case '-':
         Display = (Dig1 - Dig2).toString();
@@ -81,7 +86,7 @@ operation (String ButtonValue){
         Display = (Dig1 * Dig2).toString();
         break;
       case '÷':
-        if(Dig1%Dig2 != 1){
+        if(Dig1%Dig2 == 0){
           Display = (Dig1/Dig2).toStringAsFixed(0);
           break;
         }else {
@@ -95,18 +100,18 @@ operation (String ButtonValue){
         }
         break;
     }
+
+    Dig1 = double.parse(Display);
   }
 
   else{
     if(Display.length <= 15){
+      Receptor += ButtonValue;
       if (Test == false){
-        Receptor += ButtonValue;
         Display = Receptor;
-        Memory = Receptor;
       }
       else if(Test == true){
         Converbool = true;
-        Receptor =  Receptor + ButtonValue;
         Display = Memory + Receptor;
         Dig2 = double.parse(Receptor);
       }
