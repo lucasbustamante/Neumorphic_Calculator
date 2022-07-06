@@ -6,9 +6,8 @@ String Operation = '';
 bool Test = false;
 bool Virg = false;
 String Memory = '';
-double Conver = 0;
 bool Converbool = false;
-String oi = '';
+var teste ;
 
 
 operation (String ButtonValue){
@@ -20,7 +19,6 @@ operation (String ButtonValue){
     Virg = false;
     Dig1 = 0;
     Dig2 = 0;
-    Conver = 0;
     Converbool = false;
   }
 
@@ -30,7 +28,8 @@ operation (String ButtonValue){
     Test = true;
     if(Dig1 >= 1 || Dig1 <= -1){
       Receptor = Display;
-      }else{Dig1 = double.parse(Receptor);
+      }else{
+      Dig1 = double.parse(Receptor);
     }
     Virg = false;
     Operation = ButtonValue;
@@ -45,9 +44,12 @@ operation (String ButtonValue){
 
   else if(ButtonValue == '+/-') {
     if(Receptor != ''){
-      Conver = double.parse(Receptor);
-      Conver = Conver - 2 * Conver;
-      Receptor = Conver.toString();
+      if ((double.parse(Receptor) - 2 * double.parse(Receptor)) % 2 == 1.0 ||
+          (double.parse(Receptor) - 2 * double.parse(Receptor)) % 2 == 0.0){
+        Receptor = (double.parse(Receptor) - 2 * double.parse(Receptor)).toInt().toString();
+      }else{
+        Receptor = (double.parse(Receptor) - 2 * double.parse(Receptor)).toString();
+      }
 
       if (Converbool == false) {
         Display = Receptor;
@@ -77,13 +79,22 @@ operation (String ButtonValue){
     Test = false;
     switch(Operation){
       case '+':
-        Display = (Dig1 + Dig2).toString();
+        if((Dig1+Dig2)%2 == 1.0 || (Dig1+Dig2)%2 == 0.0){
+          Display = (Dig1 + Dig2).toInt().toString();
+        }else{
+        Display = (Dig1 + Dig2).toString();}
         break;
       case '-':
-        Display = (Dig1 - Dig2).toString();
+        if((Dig1-Dig2)%2 == 1.0 || (Dig1-Dig2)%2 == 0.0){
+          Display = (Dig1 - Dig2).toInt().toString();
+        }else{
+          Display = (Dig1 - Dig2).toString();}
         break;
       case '×':
-        Display = (Dig1 * Dig2).toString();
+        if((Dig1*Dig2)%2 == 1.0 || (Dig1*Dig2)%2 == 0.0){
+          Display = (Dig1 * Dig2).toInt().toString();
+        }else{
+          Display = (Dig1 * Dig2).toString();}
         break;
       case '÷':
         if(Dig1%Dig2 == 0){
