@@ -13,10 +13,29 @@ class DisplayCalc extends StatelessWidget {
     var size = MediaQuery.of(context).size.height*0.01;
     return Container(
       child: Expanded(
-          child: AutoSizeText(display, maxLines: 1,
-          style: TextStyle(fontSize:80,
-          color: kPrimaryColor,
-          fontWeight: FontWeight.w200)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                AutoSizeText(display, maxLines: 1,
+                style: TextStyle(fontSize:80,
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w200),
+                ),
+                SizedBox(height: 50),
+                Row(mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                      child: Icon(Icons.backspace_outlined, color: kOperationColor,),
+                    ),
+                  ],
+                ),
+                Divider(color: kOperationColor,)
+              ],
+            ),
+          ),
     ),
     );
   }

@@ -57,7 +57,6 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          SizedBox(height: 200),
           DisplayCalc(Display),
           Row(children: [
             Button('AC',ColorNum: kSecondaryColor),
