@@ -27,8 +27,8 @@ operation (String ButtonValue){
 
   //TODO: Corrigir trocar de sinais em meio a soma
   //TODO: Criar função multi soma
-  else if(ButtonValue == '+' || ButtonValue == '-' || ButtonValue == '%' ||
-      ButtonValue == '×' || ButtonValue == '÷'){
+  else if(ButtonValue == '+' || ButtonValue == '-' || ButtonValue == '×' ||
+      ButtonValue == '%' || ButtonValue == '÷' ){
     Validated = true;
     if(Dig1 >= 1 || Dig1 <= -1){
       Receptor = Display;
@@ -113,15 +113,9 @@ operation (String ButtonValue){
         break;
     //TODO: Criar função para contas de porcentagem
       case '%':
-        if(porcen == false){
           if((Dig1 / 100 * Dig2) % 2 == 0){
             Display = (Dig1 / 100 * Dig2).toInt().toString();
-          }else{
-            Display = (Dig1 / 100 * Dig2).toString();
           }
-        }else{
-          Display = (Dig1*Dig2 / 100 + Dig1).toString();
-        }
         break;
     }
 
