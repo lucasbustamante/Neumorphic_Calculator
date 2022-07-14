@@ -9,7 +9,7 @@ String Memory = '';
 bool Converbool = false;
 bool porcen = false;
 
-
+List<int> test = [];
 
 operation (String ButtonValue){
 
@@ -121,7 +121,7 @@ operation (String ButtonValue){
 
     Dig1 = double.parse(Display);
   }
-
+//TODO: criar uma List onde irar substituir as variaveis Dig1 e Dig2
   else{
     if(Display.length <= 15){
       Receptor += ButtonValue;
