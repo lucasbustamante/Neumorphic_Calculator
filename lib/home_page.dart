@@ -16,7 +16,8 @@ class HomePage extends StatefulWidget {
 
 
 class _HomePageState extends State<HomePage> {
-  Widget Button (String ButtonText, {Color? ColorNum, int? flex}){
+  Widget Button(String ButtonText, {Color? ColorNum, int? flex}) {
+
 
     if(ColorNum == null){
       ColorNum = kPrimaryColor;
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 30, color: ColorNum,
                 fontWeight: FontWeight.w300
             ),)),
-          onPressed: (){
+          onPressed: () {
             setState(() {
               operation(ButtonText);
             });
@@ -43,13 +44,16 @@ class _HomePageState extends State<HomePage> {
           style: NeumorphicStyle(
               boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(10))
           ),
-          padding: EdgeInsets.all(MediaQuery.of(context).size.height*0.0243
+          padding: EdgeInsets.all(MediaQuery
+              .of(context)
+              .size
+              .height * 0.0243
           ),
         ),
       ),
     );
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

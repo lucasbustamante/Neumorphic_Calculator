@@ -9,8 +9,6 @@ String Memory = '';
 bool Converbool = false;
 bool porcen = false;
 
-List<int> test = [];
-
 operation (String ButtonValue){
 
   if(ButtonValue == 'AC'){
@@ -23,6 +21,9 @@ operation (String ButtonValue){
     Converbool = false;
     Memory = '';
     porcen = false;
+  }
+  else if(ButtonValue == 'lucas'){
+    Receptor = Receptor.substring(0, Display.length-1);
   }
 
   //TODO: Corrigir trocar de sinais em meio a soma
@@ -120,6 +121,8 @@ operation (String ButtonValue){
     }
 
     Dig1 = double.parse(Display);
+
+    print(Display.substring(0, Display.length - 1));
   }
 //TODO: criar uma List onde irar substituir as variaveis Dig1 e Dig2
   else{
