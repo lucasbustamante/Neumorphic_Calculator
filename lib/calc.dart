@@ -22,8 +22,11 @@ operation (String ButtonValue){
     Memory = '';
     porcen = false;
   }
+
+  //TODO: Corrigir erro de setState.
   else if(ButtonValue == 'lucas'){
-    Receptor = Receptor.substring(0, Display.length-1);
+    Receptor = Receptor.substring(0, Receptor.length-1);
+    Display = Display.substring(0, Display.length-1);
   }
 
   //TODO: Corrigir trocar de sinais em meio a soma

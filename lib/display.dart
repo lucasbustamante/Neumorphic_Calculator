@@ -16,7 +16,6 @@ class DisplayCalc extends StatefulWidget {
 class _DisplayCalcState extends State<DisplayCalc> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size.height * 0.01;
     return Container(
       child: Expanded(
         child: Padding(
@@ -41,16 +40,16 @@ class _DisplayCalcState extends State<DisplayCalc> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 30),
                     child: GestureDetector(
-                      onTap: (){
-                        setState((){
-                          operation('lucas');
-                          print(Display);
-                        });
-                      },
+                        onTap: (){
+                          setState((){
+                            operation('lucas');
+                            print(Display);
+                          });
+                        },
                         child: Icon(
-                      Icons.backspace_outlined,
-                      color: kOperationColor,
-                    )),
+                          Icons.backspace_outlined,
+                          color: kOperationColor,
+                        )),
                   ),
                 ],
               ),
