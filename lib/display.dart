@@ -39,23 +39,9 @@ class _DisplayCalcState extends State<DisplayCalc> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 30),
-                    child: GestureDetector(
-                        onTap: (){
-                          setState((){
-                            operation('lucas');
-                            print(Display);
-                          });
-                        },
-                        child: Icon(
-                          Icons.backspace_outlined,
-                          color: kOperationColor,
-                        )),
                   ),
                 ],
               ),
-              Divider(
-                color: kOperationColor,
-              )
             ],
           ),
         ),

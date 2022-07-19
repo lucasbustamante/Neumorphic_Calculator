@@ -61,7 +61,32 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+
           DisplayCalc(Display),
+          Padding(
+            padding: const EdgeInsets.only(right: 25, bottom: 25),
+            child: GestureDetector(
+                onTap: (){
+                  setState((){
+                    operation('clean');
+                  });
+                },
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  child: Icon(
+                    Icons.backspace_outlined,
+                    color: kOperationColor,
+                  ),
+                )),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Divider(
+              color: kOperationColor,
+              thickness: 0.5,
+            ),
+          ),
           Row(children: [
             Button('AC',ColorNum: kSecondaryColor),
             Button('+/-',ColorNum: kSecondaryColor),
