@@ -22,12 +22,13 @@ operation(String ButtonValue) {
     Converbool = false;
     Memory = '';
     porcen = false;
-  } else if (ButtonValue == 'clean') {
 
     //TODO: fazer clean dos Dig's
+  } else if (ButtonValue == 'clean') {
     if (Display != '0') {
       Display = Display.substring(0, Display.length - 1);
       Receptor = Display;
+
       if (0 == Display.length) {
         Display = '0';
         Receptor = '';
@@ -49,6 +50,7 @@ operation(String ButtonValue) {
       Receptor = Display;
     } else {
       Dig1 = double.parse(Receptor);
+
     }
     Virg = false;
     Operation = ButtonValue;
