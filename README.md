@@ -26,7 +26,7 @@ Screenshots da tela inicial.
 flutter pub get
 ```
 
-4. Execute
+4. Execute.
 
 ```
 flutter run
