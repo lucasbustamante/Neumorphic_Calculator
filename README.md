@@ -3,6 +3,7 @@
 * [Introdução](#Introdução)
 * [Home](#Home)
 * [Executando](#Executando)
+* [Download](#Baixe-o-APK)
 
 ## Introdução
 
@@ -14,10 +15,6 @@ Screenshots da tela inicial.
 
 <p float="left">
   <img src="/screenshots/calculator.jpg" width="800" />
-
-## Gif
-<p float="left">
-    <img src="/screenshots/gif.gif" width="250" />
 
 ## Baixe o APK
 [Clique aqui para baixar o aplicativo para Android](https://github.com/lucasbustamante/Neumorphic_Calculator/raw/master/app-release.apk)
